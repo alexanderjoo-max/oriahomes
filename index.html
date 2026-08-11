@@ -116,16 +116,16 @@
             <stop offset="0.73" stop-color="#2c4a5e" />
             <stop offset="1" stop-color="#1f384b" />
           </radialGradient>
-          <radialGradient id="wheelShare" cx="128" cy="34" r="120" gradientUnits="userSpaceOnUse">
+          <radialGradient id="wheelShare" cx="134" cy="120" r="128" gradientUnits="userSpaceOnUse">
             <stop offset="0" stop-color="#e8734f" />
             <stop offset="1" stop-color="#c44f31" />
           </radialGradient>
         </defs>
 
-        <!-- the other seven eighths -->
+        <!-- the other seven eighths, clockwise from noon -->
         <g class="wheel__rest">
+          <path class="wheel__wedge" d="M130 130 L130 30 A100 100 0 0 1 200.711 59.289 Z" />
           <path class="wheel__wedge" d="M130 130 L200.711 59.289 A100 100 0 0 1 230 130 Z" />
-          <path class="wheel__wedge" d="M130 130 L230 130 A100 100 0 0 1 200.711 200.711 Z" />
           <path class="wheel__wedge" d="M130 130 L200.711 200.711 A100 100 0 0 1 130 230 Z" />
           <path class="wheel__wedge" d="M130 130 L130 230 A100 100 0 0 1 59.289 200.711 Z" />
           <path class="wheel__wedge" d="M130 130 L59.289 200.711 A100 100 0 0 1 30 130 Z" />
@@ -147,9 +147,9 @@
 
         <circle class="wheel__rim" cx="130" cy="130" r="100" />
 
-        <!-- your eighth, lifted out -->
+        <!-- your eighth, lifted out — the wedge the mark fills orange -->
         <g class="wheel__share">
-          <path class="wheel__share-wedge" d="M130 130 L130 30 A100 100 0 0 1 200.711 59.289 Z" />
+          <path class="wheel__share-wedge" d="M130 130 L230 130 A100 100 0 0 1 200.711 200.711 Z" />
         </g>
 
         <circle class="wheel__hub" cx="130" cy="130" r="7" />
