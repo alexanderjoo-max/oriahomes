@@ -6,10 +6,9 @@
 
   var WAITLIST_EMAIL = "waitlist@oriahomes.com";
 
-  /* ---------- Nav state, logo swap, scroll progress ---------- */
+  /* ---------- Nav state, logo swap ---------- */
   var nav = document.getElementById("nav");
   var navLogo = document.getElementById("navLogo");
-  var scrollbar = document.getElementById("scrollbar");
   var LOGO_TOP = "assets/logo-light.svg";
   var LOGO_SCROLLED = "assets/logo-full.svg";
 
@@ -26,11 +25,6 @@
     if (y > 40) nav.classList.add("nav--solid");
     else nav.classList.remove("nav--solid");
     setLogo();
-
-    // Progress across the whole page
-    var docH = document.documentElement.scrollHeight - window.innerHeight;
-    var pct = docH > 0 ? Math.min(1, Math.max(0, y / docH)) : 0;
-    if (scrollbar) scrollbar.style.width = Math.round(pct * 100) + "%";
   }
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", onScroll, { passive: true });

@@ -20,8 +20,8 @@
   --line: rgba(33, 62, 77, 0.14);
 
   /* Type */
-  --display: "Bricolage Grotesque", "Inter", system-ui, sans-serif;
-  --body: "Inter", system-ui, -apple-system, sans-serif;
+  --display: "Bricolage Grotesque", "Montserrat", system-ui, sans-serif;
+  --body: "Montserrat", system-ui, -apple-system, sans-serif;
 
   --maxw: 1200px;
   --gutter: clamp(1.25rem, 4vw, 4rem);
@@ -110,19 +110,6 @@ img { max-width: 100%; display: block; }
 .btn:focus-visible {
   outline: 3px solid var(--sea-soft);
   outline-offset: 3px;
-}
-
-/* =========================================================
-   SCROLL PROGRESS BAR
-   ========================================================= */
-.scrollbar {
-  position: fixed;
-  top: 0; left: 0;
-  height: 3px;
-  width: 0%;
-  background: var(--terra);
-  z-index: 200;
-  transition: width 0.1s linear;
 }
 
 /* =========================================================
@@ -1133,10 +1120,6 @@ img { max-width: 100%; display: block; }
     justify-content: center;
     width: 100%;
     margin: 1.1rem 0 0.25rem;
-    background: #fff;
-    color: var(--ink);
-    border: 1.5px solid var(--line);
-    box-shadow: 0 8px 20px -14px rgba(33, 62, 77, 0.5);
   }
   .nav--open .nav__toggle span { background: var(--ink); }
 }
