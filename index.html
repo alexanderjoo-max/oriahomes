@@ -236,14 +236,42 @@
   </div>
   <div class="why__bento">
     <div class="why__lead reveal">
-      <svg class="why__lead-mark" viewBox="0 0 64 64" aria-hidden="true">
-        <circle cx="32" cy="32" r="28" fill="none" stroke="rgba(255,255,255,0.65)" stroke-width="2" />
-        <path d="M32 32 L32 4 A28 28 0 0 1 51.8 12.2 Z" fill="#fff" />
-        <line x1="32" y1="32" x2="32" y2="4" stroke="rgba(255,255,255,0.65)" stroke-width="2" />
-        <line x1="32" y1="32" x2="60" y2="32" stroke="rgba(255,255,255,0.65)" stroke-width="2" />
-        <line x1="32" y1="32" x2="32" y2="60" stroke="rgba(255,255,255,0.65)" stroke-width="2" />
-        <line x1="32" y1="32" x2="4" y2="32" stroke="rgba(255,255,255,0.65)" stroke-width="2" />
-      </svg>
+      <div class="why__globe-wrap">
+        <svg class="why__globe" viewBox="0 0 260 260" role="img"
+             aria-label="Globe showing Oria coverage across Europe, the Americas and Asia">
+          <!-- globe -->
+          <circle class="wg-outline" cx="130" cy="130" r="95" />
+          <ellipse class="wg-lat" cx="130" cy="130" rx="95" ry="34" />
+          <ellipse class="wg-lat wg-lat--2" cx="130" cy="130" rx="80" ry="70" />
+          <ellipse class="wg-meridian" cx="130" cy="130" rx="38" ry="95" />
+
+          <!-- routes between regions -->
+          <path class="wg-route" d="M92 150 Q110 104 142 96" />
+          <path class="wg-route wg-route--2" d="M142 96 Q170 100 176 140" />
+
+          <!-- region markers -->
+          <g class="wg-pin wg-pin--1">
+            <circle class="wg-pin-halo" cx="92" cy="150" r="11" />
+            <circle class="wg-pin-dot" cx="92" cy="150" r="4.5" />
+          </g>
+          <g class="wg-pin wg-pin--2">
+            <circle class="wg-pin-halo" cx="142" cy="96" r="11" />
+            <circle class="wg-pin-dot" cx="142" cy="96" r="4.5" />
+          </g>
+          <g class="wg-pin wg-pin--3">
+            <circle class="wg-pin-pulse" cx="176" cy="140" r="10" />
+            <circle class="wg-pin-halo" cx="176" cy="140" r="11" />
+            <circle class="wg-pin-dot wg-pin-dot--new" cx="176" cy="140" r="5.5" />
+          </g>
+        </svg>
+      </div>
+
+      <ul class="why__legend">
+        <li><span class="why__legend-dot"></span>Americas</li>
+        <li><span class="why__legend-dot"></span>Europe</li>
+        <li class="is-new"><span class="why__legend-dot"></span>Asia <em>only oria</em></li>
+      </ul>
+
       <p class="why__lead-text">
         Not a timeshare. Not a points scheme. Real ownership of real homes — in
         more of the world than anyone else offers.
@@ -252,7 +280,16 @@
     </div>
 
     <article class="why__card reveal">
-      <span class="why__index">01</span>
+      <span class="why__icon" aria-hidden="true">
+        <svg viewBox="0 0 48 48">
+          <circle class="why__icon-ring" cx="24" cy="24" r="22.5" />
+          <g class="why__icon-art">
+            <circle cx="24" cy="24" r="10" />
+            <ellipse cx="24" cy="24" rx="4.2" ry="10" />
+            <path d="M14.4 20.5h19.2M14.4 27.5h19.2" />
+          </g>
+        </svg>
+      </span>
       <h3>Truly global — including&nbsp;Asia</h3>
       <p>
         The first to bring fractional ownership to Asia alongside Europe and the
@@ -260,7 +297,18 @@
       </p>
     </article>
     <article class="why__card reveal">
-      <span class="why__index">02</span>
+      <span class="why__icon" aria-hidden="true">
+        <svg viewBox="0 0 48 48">
+          <circle class="why__icon-ring" cx="24" cy="24" r="22.5" />
+          <g class="why__icon-art">
+            <path d="M13.5 23.5 24 15l10.5 8.5" />
+            <circle cx="20.4" cy="26.6" r="2.1" />
+            <circle cx="27.6" cy="27.8" r="1.7" />
+            <path d="M16.7 33.4c0-2 1.65-3.7 3.7-3.7s3.7 1.7 3.7 3.7" />
+            <path d="M24.5 33.4c0-1.7 1.4-3.05 3.1-3.05s3.1 1.35 3.1 3.05" />
+          </g>
+        </svg>
+      </span>
       <h3>Made for the average family</h3>
       <p>
         Priced so ownership is within reach — not a luxury for the few, but a
@@ -268,7 +316,17 @@
       </p>
     </article>
     <article class="why__card reveal">
-      <span class="why__index">03</span>
+      <span class="why__icon" aria-hidden="true">
+        <svg viewBox="0 0 48 48">
+          <circle class="why__icon-ring" cx="24" cy="24" r="22.5" />
+          <g class="why__icon-art">
+            <path d="M16.5 13h9.5l6 6v15.4a1.6 1.6 0 0 1-1.6 1.6H16.5a1.6 1.6 0 0 1-1.6-1.6V14.6a1.6 1.6 0 0 1 1.6-1.6z" />
+            <path d="M26 13v6h6" />
+            <path d="M19 24.5h8M19 28h5" />
+            <circle cx="27.6" cy="30.4" r="3" />
+          </g>
+        </svg>
+      </span>
       <h3>Real, deeded ownership</h3>
       <p>
         You own an appreciating asset you can keep, pass down, or sell. It's
@@ -276,7 +334,17 @@
       </p>
     </article>
     <article class="why__card reveal">
-      <span class="why__index">04</span>
+      <span class="why__icon" aria-hidden="true">
+        <svg viewBox="0 0 48 48">
+          <circle class="why__icon-ring" cx="24" cy="24" r="22.5" />
+          <g class="why__icon-art">
+            <circle cx="19" cy="19" r="5.5" />
+            <path d="M22.9 22.9 33 33" />
+            <path d="M27.5 27.5l2.6-2.6" />
+            <path d="M30.2 30.2l2.2-2.2" />
+          </g>
+        </svg>
+      </span>
       <h3>Fully managed, always ready</h3>
       <p>
         Upkeep, bills, local taxes, and a fair calendar — all handled. Your only
