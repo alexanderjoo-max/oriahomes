@@ -38,9 +38,12 @@ To point at a different Kit form, change the form id in `KIT_ENDPOINT`. If
 email to `waitlist@oriahomes.com` (no backend needed).
 
 ## Design notes
-- Palette from the logo: ink `#213E4D`, sea `#4E7B91`, terracotta `#C65F41`,
+- Palette from the logo: ink `#213E4D`, sea `#4E7B91`, terracotta `#DA5F41`,
   sand `#F3EEE1`, paper `#F8F7F3`.
-- Type: Fraunces (display) + Inter (body), loaded from Google Fonts.
+- Type: Bricolage Grotesque (display) + Inter (body), loaded from Google Fonts.
+- Logo assets (`assets/logo-*.svg`, `assets/mark.svg`) have the "ORIA HOMES"
+  wordmark outlined to vector paths — no font dependency, so they render
+  identically everywhere regardless of installed fonts.
 - The "1/8 share" wheel in *How it works* reuses the logo's fractional-globe
   geometry as a recurring motif.
 - Destination photos are currently hotlinked from Unsplash as placeholders —
