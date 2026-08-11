@@ -4,7 +4,8 @@
     <style>
       .cls-1, .cls-2 {
         fill: #264555;
-        font-family: VentiCF-Regular, 'Venti CF';
+        font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-weight: 600;
         font-size: 43.14px;
       }
 

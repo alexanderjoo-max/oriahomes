@@ -36,7 +36,8 @@
 
       .cls-7, .cls-10 {
         fill: #213e4d;
-        font-family: VentiCF-Regular, 'Venti CF';
+        font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-weight: 600;
         font-size: 77.23px;
       }
 
