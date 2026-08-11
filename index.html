@@ -105,28 +105,70 @@
   </div>
 
   <div class="how__grid">
-    <div class="how__diagram reveal" aria-hidden="true">
-      <!-- Fractional "share of the world" wheel — echoes the Oria mark -->
-      <svg viewBox="0 0 240 240" class="wheel" role="img">
-        <g class="wheel__ring">
-          <circle class="wheel__slice" cx="120" cy="120" r="100" />
-          <path class="wheel__wedge" d="M120 120 L120 20 A100 100 0 0 1 190.71 49.29 Z" />
+    <div class="how__diagram reveal">
+      <!-- Eight equal shares, built from the Oria mark's own palette -->
+      <svg viewBox="0 0 260 260" class="wheel" role="img"
+           aria-label="A circle divided into eight equal shares, with one share highlighted as yours">
+        <defs>
+          <!-- one light source across the whole circle, as on the mark -->
+          <radialGradient id="wheelBody" cx="78" cy="52" r="215" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#4f7b91" />
+            <stop offset="0.73" stop-color="#2c4a5e" />
+            <stop offset="1" stop-color="#1f384b" />
+          </radialGradient>
+          <radialGradient id="wheelShare" cx="128" cy="34" r="120" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#e8734f" />
+            <stop offset="1" stop-color="#c44f31" />
+          </radialGradient>
+        </defs>
+
+        <!-- the other seven eighths -->
+        <g class="wheel__rest">
+          <path class="wheel__wedge" d="M130 130 L200.711 59.289 A100 100 0 0 1 230 130 Z" />
+          <path class="wheel__wedge" d="M130 130 L230 130 A100 100 0 0 1 200.711 200.711 Z" />
+          <path class="wheel__wedge" d="M130 130 L200.711 200.711 A100 100 0 0 1 130 230 Z" />
+          <path class="wheel__wedge" d="M130 130 L130 230 A100 100 0 0 1 59.289 200.711 Z" />
+          <path class="wheel__wedge" d="M130 130 L59.289 200.711 A100 100 0 0 1 30 130 Z" />
+          <path class="wheel__wedge" d="M130 130 L30 130 A100 100 0 0 1 59.289 59.289 Z" />
+          <path class="wheel__wedge" d="M130 130 L59.289 59.289 A100 100 0 0 1 130 30 Z" />
         </g>
-        <line class="wheel__spoke" x1="120" y1="120" x2="120" y2="20" />
-        <line class="wheel__spoke" x1="120" y1="120" x2="220" y2="120" />
-        <line class="wheel__spoke" x1="120" y1="120" x2="120" y2="220" />
-        <line class="wheel__spoke" x1="120" y1="120" x2="20" y2="120" />
-        <line class="wheel__spoke wheel__spoke--soft" x1="120" y1="120" x2="191" y2="49" />
-        <line class="wheel__spoke wheel__spoke--soft" x1="120" y1="120" x2="191" y2="191" />
-        <line class="wheel__spoke wheel__spoke--soft" x1="120" y1="120" x2="49" y2="191" />
-        <line class="wheel__spoke wheel__spoke--soft" x1="120" y1="120" x2="49" y2="49" />
-        <circle class="wheel__hub" cx="120" cy="120" r="7" />
+
+        <!-- construction lines, echoing the mark -->
+        <g class="wheel__spokes">
+          <line x1="130" y1="130" x2="130" y2="30" />
+          <line x1="130" y1="130" x2="200.711" y2="59.289" />
+          <line x1="130" y1="130" x2="230" y2="130" />
+          <line x1="130" y1="130" x2="200.711" y2="200.711" />
+          <line x1="130" y1="130" x2="130" y2="230" />
+          <line x1="130" y1="130" x2="59.289" y2="200.711" />
+          <line x1="130" y1="130" x2="30" y2="130" />
+          <line x1="130" y1="130" x2="59.289" y2="59.289" />
+        </g>
+
+        <circle class="wheel__rim" cx="130" cy="130" r="100" />
+
+        <!-- your eighth, lifted out -->
+        <g class="wheel__share">
+          <path class="wheel__share-wedge" d="M130 130 L130 30 A100 100 0 0 1 200.711 59.289 Z" />
+        </g>
+
+        <circle class="wheel__hub" cx="130" cy="130" r="7" />
       </svg>
-      <p class="how__diagram-cap"><strong>Your 1/8 share</strong> — up to 44 nights a year</p>
+
+      <div class="how__stats">
+        <div class="how__stat">
+          <span class="how__stat-num">1/8</span>
+          <span class="how__stat-label">your share</span>
+        </div>
+        <div class="how__stat">
+          <span class="how__stat-num">44</span>
+          <span class="how__stat-label">nights a year</span>
+        </div>
+      </div>
     </div>
 
-    <ol class="how__steps">
-      <li class="how__step reveal">
+    <ol class="how__steps reveal">
+      <li class="how__step">
         <span class="how__num">01</span>
         <h3>Choose your home</h3>
         <p>
@@ -134,7 +176,7 @@
           about. Buy a share that fits your family — typically an eighth.
         </p>
       </li>
-      <li class="how__step reveal">
+      <li class="how__step">
         <span class="how__num">02</span>
         <h3>Own it, for real</h3>
         <p>
@@ -142,7 +184,7 @@
           your home — an asset you can keep, pass on, or sell.
         </p>
       </li>
-      <li class="how__step reveal">
+      <li class="how__step">
         <span class="how__num">03</span>
         <h3>We manage everything</h3>
         <p>
@@ -150,7 +192,7 @@
           all handled by Oria. Nothing on your to-do list but the trip.
         </p>
       </li>
-      <li class="how__step reveal">
+      <li class="how__step">
         <span class="how__num">04</span>
         <h3>Just arrive</h3>
         <p>

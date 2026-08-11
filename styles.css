@@ -408,46 +408,212 @@ img { max-width: 100%; display: block; }
   align-items: center;
 }
 
-/* Fractional wheel — brand mark motif */
+/* ---------- Eight-share wheel, built from the mark's palette ---------- */
 .how__diagram { text-align: center; }
-.wheel { width: min(360px, 80%); height: auto; margin: 0 auto; }
-.wheel__slice { fill: rgba(255, 255, 255, 0.05); stroke: var(--sea-soft); stroke-width: 1.5; }
-.wheel__wedge { fill: var(--terra); }
-.wheel__spoke { stroke: var(--sea-soft); stroke-width: 1.5; }
-.wheel__spoke--soft { stroke: rgba(111, 147, 165, 0.4); }
-.wheel__hub { fill: var(--paper); }
-.how__diagram-cap {
-  margin-top: 1.5rem;
-  font-size: 0.95rem;
-  color: rgba(248, 247, 243, 0.75);
-  letter-spacing: 0.02em;
+.wheel {
+  width: min(340px, 78%);
+  height: auto;
+  margin: 0 auto;
+  overflow: visible;
 }
-.how__diagram-cap strong { color: var(--terra); font-weight: 600; }
 
+.wheel__rest .wheel__wedge {
+  fill: url(#wheelBody);
+  stroke: rgba(111, 147, 165, 0.32);
+  stroke-width: 1;
+  transform-box: view-box;
+  transform-origin: 130px 130px;
+  transform: scale(0.25);
+  opacity: 0;
+}
+.how__diagram.is-visible .wheel__rest .wheel__wedge {
+  animation: wheelBloom 0.55s var(--ease) forwards;
+}
+.how__diagram.is-visible .wheel__rest .wheel__wedge:nth-child(1) { animation-delay: 0.38s; }
+.how__diagram.is-visible .wheel__rest .wheel__wedge:nth-child(2) { animation-delay: 0.47s; }
+.how__diagram.is-visible .wheel__rest .wheel__wedge:nth-child(3) { animation-delay: 0.56s; }
+.how__diagram.is-visible .wheel__rest .wheel__wedge:nth-child(4) { animation-delay: 0.65s; }
+.how__diagram.is-visible .wheel__rest .wheel__wedge:nth-child(5) { animation-delay: 0.74s; }
+.how__diagram.is-visible .wheel__rest .wheel__wedge:nth-child(6) { animation-delay: 0.83s; }
+.how__diagram.is-visible .wheel__rest .wheel__wedge:nth-child(7) { animation-delay: 0.92s; }
+@keyframes wheelBloom { to { opacity: 1; transform: scale(1); } }
+
+.wheel__spokes line {
+  stroke: rgba(111, 147, 165, 0.55);
+  stroke-width: 1.2;
+  opacity: 0;
+}
+.how__diagram.is-visible .wheel__spokes line {
+  animation: wheelFade 0.6s var(--ease) 1.05s forwards;
+}
+@keyframes wheelFade { to { opacity: 1; } }
+
+.wheel__rim {
+  fill: none;
+  stroke: var(--sea-soft);
+  stroke-width: 1.6;
+  stroke-dasharray: 629;
+  stroke-dashoffset: 629;
+}
+.how__diagram.is-visible .wheel__rim {
+  animation: wheelDraw 1.3s var(--ease) forwards;
+}
+@keyframes wheelDraw { to { stroke-dashoffset: 0; } }
+
+/* your eighth — blooms last, then lifts out of the circle */
+.wheel__share-wedge {
+  fill: url(#wheelShare);
+  transform-box: view-box;
+  transform-origin: 130px 130px;
+  transform: scale(0.25);
+  opacity: 0;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.45));
+}
+.how__diagram.is-visible .wheel__share-wedge {
+  animation: wheelBloom 0.6s var(--ease) 1.15s forwards;
+}
+.wheel__share {
+  transform-box: view-box;
+  transform-origin: 130px 130px;
+}
+.how__diagram.is-visible .wheel__share {
+  animation: shareLift 0.95s var(--ease) 1.7s forwards;
+}
+@keyframes shareLift {
+  0%   { transform: translate(0, 0); }
+  55%  { transform: translate(6.2px, -15px); }
+  100% { transform: translate(4.6px, -11.1px); }
+}
+
+.wheel__hub {
+  fill: var(--paper);
+  transform-box: view-box;
+  transform-origin: 130px 130px;
+  transform: scale(0);
+}
+.how__diagram.is-visible .wheel__hub {
+  animation: wheelBloom 0.5s var(--ease) 1.35s forwards;
+}
+
+/* stat pair under the wheel */
+.how__stats {
+  display: flex;
+  justify-content: center;
+  gap: clamp(1.75rem, 5vw, 3.25rem);
+  margin-top: 2rem;
+}
+.how__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  opacity: 0;
+  transform: translateY(12px);
+}
+.how__diagram.is-visible .how__stat {
+  animation: statIn 0.7s var(--ease) 2.1s forwards;
+}
+.how__diagram.is-visible .how__stat:nth-child(2) { animation-delay: 2.25s; }
+@keyframes statIn { to { opacity: 1; transform: none; } }
+.how__stat-num {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(2rem, 4vw, 2.9rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--terra);
+}
+.how__stat-label {
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(248, 247, 243, 0.62);
+}
+
+/* ---------- Steps, on a progress rail ---------- */
 .how__steps { list-style: none; margin: 0; padding: 0; }
 .how__step {
-  padding: 1.6rem 0;
-  border-top: 1px solid rgba(111, 147, 165, 0.28);
+  position: relative;
+  padding: 1.05rem 0;
   display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 0.4rem 1.5rem;
+  grid-template-columns: 44px 1fr;
+  gap: 0.3rem 1.35rem;
+  align-items: start;
+  opacity: 0;
+  transform: translateY(14px);
 }
-.how__step:last-child { border-bottom: 1px solid rgba(111, 147, 165, 0.28); }
+/* connector runs badge-to-badge, so the rail ends on the last step */
+.how__step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 21px;
+  top: 61px;
+  bottom: -6px;
+  width: 2px;
+  background: linear-gradient(180deg, rgba(218, 95, 65, 0.85), rgba(111, 147, 165, 0.3));
+  transform: scaleY(0);
+  transform-origin: top;
+}
+.how__steps.is-visible .how__step:not(:last-child)::after {
+  animation: railGrow 0.75s var(--ease) forwards;
+}
+.how__steps.is-visible .how__step:nth-child(1)::after { animation-delay: 0.35s; }
+.how__steps.is-visible .how__step:nth-child(2)::after { animation-delay: 0.52s; }
+.how__steps.is-visible .how__step:nth-child(3)::after { animation-delay: 0.69s; }
+@keyframes railGrow { to { transform: scaleY(1); } }
+.how__steps.is-visible .how__step {
+  animation: statIn 0.6s var(--ease) forwards;
+}
+.how__steps.is-visible .how__step:nth-child(1) { animation-delay: 0.15s; }
+.how__steps.is-visible .how__step:nth-child(2) { animation-delay: 0.32s; }
+.how__steps.is-visible .how__step:nth-child(3) { animation-delay: 0.49s; }
+.how__steps.is-visible .how__step:nth-child(4) { animation-delay: 0.66s; }
+
 .how__num {
   grid-row: span 2;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  position: relative;
+  z-index: 1;
   font-family: var(--display);
-  font-size: 1.5rem;
+  font-weight: 700;
+  font-size: 1.02rem;
   color: var(--terra);
-  font-weight: 500;
+  background: var(--ink);
+  border: 1.5px solid rgba(111, 147, 165, 0.5);
+  transition: background-color 0.3s var(--ease), border-color 0.3s var(--ease),
+    color 0.3s var(--ease), transform 0.3s var(--ease);
+}
+.how__step:hover .how__num {
+  background: var(--terra);
+  border-color: var(--terra);
+  color: #fff;
+  transform: scale(1.08);
 }
 .how__step h3 {
   margin: 0;
+  padding-top: 0.55rem;
   font-family: var(--display);
-  font-weight: 500;
-  font-size: 1.5rem;
+  font-weight: 700;
+  font-size: 1.35rem;
+  letter-spacing: -0.015em;
   color: var(--paper);
 }
-.how__step p { margin: 0.35rem 0 0; color: rgba(248, 247, 243, 0.72); font-size: 0.98rem; }
+.how__step p { margin: 0.3rem 0 0; color: rgba(248, 247, 243, 0.72); font-size: 0.98rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  .wheel__rest .wheel__wedge, .wheel__spokes line, .wheel__rim,
+  .wheel__share-wedge, .wheel__share, .wheel__hub,
+  .how__stat, .how__step {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+    stroke-dashoffset: 0;
+  }
+  .how__step:not(:last-child)::after { animation: none !important; transform: scaleY(1); }
+}
 
 /* =========================================================
    MARQUEE
