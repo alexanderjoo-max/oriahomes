@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 564.47 172.29">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #4f7b91;
+      }
+
+      .cls-2 {
+        fill: url(#radial-gradient-2);
+      }
+
+      .cls-3 {
+        fill: url(#radial-gradient);
+      }
+
+      .cls-4 {
+        letter-spacing: .4em;
+      }
+
+      .cls-5 {
+        letter-spacing: .39em;
+      }
+
+      .cls-6, .cls-7 {
+        letter-spacing: .4em;
+      }
+
+      .cls-8 {
+        letter-spacing: .34em;
+      }
+
+      .cls-9 {
+        fill: #264555;
+      }
+
+      .cls-7, .cls-10 {
+        fill: #213e4d;
+        font-family: VentiCF-Regular, 'Venti CF';
+        font-size: 77.23px;
+      }
+
+      .cls-11 {
+        fill: #c65f41;
+      }
+    </style>
+    <radialGradient id="radial-gradient" cx="134.92" cy="9.66" fx="134.92" fy="9.66" r="176.32" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4f7b91"/>
+      <stop offset="1" stop-color="#1f384b"/>
+    </radialGradient>
+    <radialGradient id="radial-gradient-2" cx="73.73" cy="139.11" fx="73.73" fy="139.11" r="70.69" xlink:href="#radial-gradient"/>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <g>
+        <path class="cls-9" d="M40.76,80.33V14.23C16.59,26.4,0,51.42,0,80.33s16.59,53.93,40.76,66.1v-66.1Z"/>
+        <path class="cls-3" d="M147.97,80.33c0-40.86-33.12-73.98-73.99-73.98-11.95,0-23.23,2.85-33.22,7.88v66.1h107.21Z"/>
+        <polygon class="cls-1" points="97.63 122.33 40.76 80.33 40.76 122.33 97.63 122.33"/>
+        <path class="cls-2" d="M40.76,122.33v24.1c9.99,5.03,21.27,7.88,33.22,7.88,17.21,0,33.04-5.89,45.61-15.75l-21.97-16.23h-56.86Z"/>
+        <path class="cls-11" d="M147.97,80.33H40.76l56.86,42h.44-.44l21.97,16.23c17.27-13.54,28.38-34.58,28.38-58.23Z"/>
+      </g>
+      <text class="cls-7" transform="translate(186.23 146.11)"><tspan x="0" y="0">HOMES</tspan></text>
+      <text class="cls-10" transform="translate(185.01 64.14)"><tspan class="cls-8" x="0" y="0">O</tspan><tspan class="cls-4" x="84.18" y="0">R</tspan><tspan class="cls-5" x="160.89" y="0">I</tspan><tspan class="cls-6" x="206.31" y="0">A</tspan></text>
+    </g>
+  </g>
+</svg>
