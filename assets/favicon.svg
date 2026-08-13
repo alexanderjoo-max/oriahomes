@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 147.97 147.97">
+  <!--
+    Oria mark, tuned for favicon sizes. Same geometry as assets/mark.svg, with
+    two changes: fills are inline rather than CSS classes (safer across icon
+    parsers), and a base disc sits under the facets so anti-aliasing between
+    them can never open a hairline seam at 16px.
+  -->
+  <defs>
+    <linearGradient id="f1" x1="-11.25" y1="24.61" x2="29.8" y2="65.66" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4f7b91"/>
+      <stop offset="1" stop-color="#1f384b"/>
+    </linearGradient>
+    <radialGradient id="f2" cx="134.92" cy="3.32" fx="134.92" fy="3.32" r="176.32" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4f7b91"/>
+      <stop offset="1" stop-color="#1f384b"/>
+    </radialGradient>
+    <radialGradient id="f3" cx="92.41" cy="130.96" fx="92.41" fy="130.96" r="70.69" xlink:href="#f2"/>
+    <radialGradient id="f4" cx="94.06" cy="84.2" fx="94.06" fy="84.2" r="61.12" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#da5f41"/>
+      <stop offset="1" stop-color="#ba3d19"/>
+    </radialGradient>
+  </defs>
+
+  <circle cx="73.98" cy="73.98" r="73.98" fill="url(#f2)"/>
+
+  <path fill="url(#f1)" d="M40.76,73.98V7.88C16.59,20.06,0,45.08,0,73.98s16.59,53.93,40.76,66.1v-66.1Z"/>
+  <path fill="url(#f2)" d="M147.97,73.98C147.97,33.12,114.85,0,73.98,0c-11.95,0-23.23,2.85-33.22,7.88v66.1h107.21Z"/>
+  <polygon fill="#4f7b91" points="97.63 115.99 40.76 73.98 40.76 115.99 97.63 115.99"/>
+  <path fill="url(#f3)" d="M40.76,115.99v24.1c9.99,5.03,21.27,7.88,33.22,7.88,17.21,0,33.04-5.89,45.61-15.75l-21.97-16.23h-56.86Z"/>
+  <path fill="url(#f4)" d="M147.97,73.98H40.76l56.86,42h.44-.44l21.97,16.23c17.27-13.54,28.38-34.58,28.38-58.23Z"/>
+</svg>
