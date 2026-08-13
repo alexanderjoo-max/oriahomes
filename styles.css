@@ -761,13 +761,13 @@ img { max-width: 100%; display: block; }
 }
 .card__body p { margin: 0.3rem 0 0; font-size: 0.92rem; color: rgba(255, 255, 255, 0.85); }
 
-/* destination image assignments — high-end homes & villas */
-.card[data-img="bali"] .card__media { background-image: url("https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1200&q=80"); }
-.card[data-img="kyoto"] .card__media { background-image: url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80"); }
-.card[data-img="amalfi"] .card__media { background-image: url("https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80"); }
-.card[data-img="phuket"] .card__media { background-image: url("https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1200&q=80"); }
-.card[data-img="tulum"] .card__media { background-image: url("https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=1200&q=80"); }
-.card[data-img="santorini"] .card__media { background-image: url("https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1400&q=80"); }
+/* destination image assignments — the landmark each city is known for */
+.card[data-img="osaka"] .card__media { background-image: url("https://images.unsplash.com/photo-1584505489290-96eb4e406d08?auto=format&fit=crop&w=1200&q=80"); }
+.card[data-img="kyoto"] .card__media { background-image: url("https://images.unsplash.com/photo-1503640538573-148065ba4904?auto=format&fit=crop&w=1200&q=80"); }
+.card[data-img="florence"] .card__media { background-image: url("https://images.unsplash.com/photo-1687817997684-c9335cce7c5c?auto=format&fit=crop&w=1200&q=80"); }
+.card[data-img="vancouver"] .card__media { background-image: url("https://images.unsplash.com/photo-1730661906876-18bfc6e95f2f?auto=format&fit=crop&w=1200&q=80"); }
+.card[data-img="cabo"] .card__media { background-image: url("https://images.unsplash.com/photo-1597244586456-1044325c5ce4?auto=format&fit=crop&w=1200&q=80"); }
+.card[data-img="kunming"] .card__media { background-image: url("https://images.unsplash.com/photo-1784534924106-3c89ebfdc215?auto=format&fit=crop&w=1400&q=80"); }
 
 .dest__more {
   max-width: var(--maxw);
