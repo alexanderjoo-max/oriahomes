@@ -4,7 +4,7 @@
 (function () {
   "use strict";
 
-  var WAITLIST_EMAIL = "waitlist@oriahomes.com";
+  var WAITLIST_EMAIL = "hello@oriahomes.com";
 
   /* ---------- Nav state, logo swap ---------- */
   var nav = document.getElementById("nav");
@@ -78,7 +78,7 @@
    * To point at a different Kit form, change the id in KIT_ENDPOINT.
    *
    * If KIT_ENDPOINT is left empty, the form falls back to opening a
-   * pre-addressed email to waitlist@oriahomes.com (no backend needed).
+   * pre-addressed email to hello@oriahomes.com (no backend needed).
    */
   var KIT_ENDPOINT = "https://app.kit.com/forms/9789346/subscriptions";
 
@@ -89,24 +89,57 @@
   function handleForm(form) {
     var input = form.querySelector(".waitform__input");
     var msg = form.querySelector(".waitform__msg");
+    var btn = form.querySelector(".waitform__btn");
+    var btnLabel = btn ? btn.textContent.trim() : "";
+
+    msg.id = msg.id || form.id + "-msg";
+    input.setAttribute("aria-describedby", msg.id);
+
+    function showError(text) {
+      msg.textContent = text;
+      msg.classList.add("is-error");
+      input.setAttribute("aria-invalid", "true");
+    }
+    function clearError() {
+      msg.classList.remove("is-error");
+      input.removeAttribute("aria-invalid");
+    }
+    function setLoading(on) {
+      if (!btn) return;
+      btn.disabled = on;
+      btn.classList.toggle("is-loading", on);
+      btn.textContent = on ? "Adding you…" : btnLabel;
+      form.setAttribute("aria-busy", on ? "true" : "false");
+    }
+
+    // Drop the error as soon as they start fixing it
+    input.addEventListener("input", function () {
+      if (input.getAttribute("aria-invalid")) {
+        clearError();
+        msg.textContent = "";
+      }
+    });
 
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var email = (input.value || "").trim();
 
-      if (!isValidEmail(email)) {
-        msg.textContent = "Please enter a valid email address.";
-        msg.classList.add("is-error");
+      if (!email) {
+        showError("Please enter your email address.");
         input.focus();
         return;
       }
-      msg.classList.remove("is-error");
-      var btn = form.querySelector(".waitform__btn");
+      if (!isValidEmail(email)) {
+        showError("That email doesn't look right — check for typos.");
+        input.focus();
+        return;
+      }
+      clearError();
 
       if (KIT_ENDPOINT) {
         // POST to Kit (ConvertKit)
-        if (btn) btn.disabled = true;
-        msg.textContent = "Adding you to the list…";
+        setLoading(true);
+        msg.textContent = "";
         var data = new FormData();
         data.append("email_address", email);
         fetch(KIT_ENDPOINT, {
@@ -122,9 +155,11 @@
             showSuccess(form, msg, email);
           })
           .catch(function () {
-            if (btn) btn.disabled = false;
-            msg.textContent =
-              "Something went wrong. Please email " + WAITLIST_EMAIL + ".";
+            setLoading(false);
+            var offline = navigator.onLine === false;
+            msg.textContent = offline
+              ? "You seem to be offline. Check your connection and try again."
+              : "Something went wrong on our end. Try again, or email " + WAITLIST_EMAIL + ".";
             msg.classList.add("is-error");
           });
       } else {
@@ -150,6 +185,37 @@
   }
 
   document.querySelectorAll(".waitform").forEach(handleForm);
+
+  /* ---------- Sticky mobile CTA ---------- *
+   * Phones only (CSS hides it above 720px). Slides in once the hero — which
+   * has its own button — is off screen, and gets out of the way again when
+   * the waitlist form or footer is on screen.
+   */
+  var mobileCta = document.getElementById("mobileCta");
+  var heroEl = document.getElementById("top");
+  var waitlistEl = document.getElementById("waitlist");
+  var footerEl = document.querySelector(".footer");
+  if (mobileCta && heroEl && waitlistEl && "IntersectionObserver" in window) {
+    var onScreen = { hero: true, waitlist: false, footer: false };
+    var setCta = function () {
+      var show = !onScreen.hero && !onScreen.waitlist && !onScreen.footer &&
+        !nav.classList.contains("nav--open");
+      mobileCta.classList.toggle("is-shown", show);
+      mobileCta.setAttribute("aria-hidden", show ? "false" : "true");
+      mobileCta.tabIndex = show ? 0 : -1;
+    };
+    var ctaIo = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var key = entry.target === heroEl ? "hero" : entry.target === waitlistEl ? "waitlist" : "footer";
+        onScreen[key] = entry.isIntersecting;
+      });
+      setCta();
+    }, { threshold: 0 });
+    ctaIo.observe(heroEl);
+    ctaIo.observe(waitlistEl);
+    if (footerEl) ctaIo.observe(footerEl);
+    if (toggle) toggle.addEventListener("click", setCta);
+  }
 
   /* ---------- Destination photo galleries ---------- *
    * Photos live in assets/homes/<home>/ as home-NN.jpg and city-NN.jpg, with

@@ -8,7 +8,12 @@ as the differentiator.
 - `index.html` — page markup and copy
 - `styles.css` — all styling (brand palette derived from the logo)
 - `script.js` — sticky nav, mobile menu, scroll reveals, waitlist form
-- `assets/` — brand logo SVGs (light/dark/mark)
+- `assets/` — brand logo SVGs (light/dark/mark), `og-image.jpg` (1200×630 social share card)
+- `assets/homes/<city>/` — home and city photos (`home-NN.jpg`, `city-NN.jpg`, 480px copies in `thumb/`)
+- `privacy.html`, `terms.html` — legal pages (served at `/privacy` and `/terms`)
+- `thanks.html` — confirmation page; set it as Kit's redirect after a subscriber confirms
+- `404.html` — GitHub Pages serves this for any missing URL (uses root-absolute paths)
+- `robots.txt`, `sitemap.xml` — crawler files; add any new public page to the sitemap
 
 ## Run locally
 Any static server works, e.g.:
@@ -35,7 +40,7 @@ slide-in, and sticky-bar popups (which are enabled in the embed settings).
 
 To point at a different Kit form, change the form id in `KIT_ENDPOINT`. If
 `KIT_ENDPOINT` is left empty, the form falls back to opening a pre-addressed
-email to `waitlist@oriahomes.com` (no backend needed).
+email to `hello@oriahomes.com` (no backend needed).
 
 ## Design notes
 - Palette from the logo: ink `#213E4D`, sea `#4E7B91`, terracotta `#DA5F41`,

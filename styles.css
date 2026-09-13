@@ -348,7 +348,22 @@ img { max-width: 100%; display: block; }
   min-height: 1.2em;
   color: #fff;
 }
-.waitform__msg.is-error { color: #ffd9cd; }
+.waitform__msg.is-error { color: #ffd9cd; font-weight: 500; }
+.waitform__input[aria-invalid="true"] {
+  border-color: #ffb39e;
+  background: rgba(218, 95, 65, 0.18);
+}
+.waitform__btn:disabled { cursor: progress; opacity: 0.85; transform: none; }
+.waitform__btn.is-loading::before {
+  content: "";
+  width: 0.95em; height: 0.95em;
+  margin-right: 0.6rem;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
 .waitform.is-done .waitform__input,
 .waitform.is-done .waitform__btn { display: none; }
 
@@ -1314,6 +1329,8 @@ img { max-width: 100%; display: block; }
 }
 .waitform--cta { margin: 0 auto; justify-content: center; }
 .cta__fineprint { margin: 1.2rem 0 0; font-size: 0.82rem; color: rgba(255, 255, 255, 0.7); }
+.cta__fineprint a { color: inherit; text-underline-offset: 3px; }
+.cta__fineprint a:hover { color: #fff; }
 
 /* =========================================================
    FOOTER
@@ -1342,6 +1359,94 @@ img { max-width: 100%; display: block; }
 }
 .footer__meta a { color: var(--sea-soft); text-decoration: none; }
 .footer__meta a:hover { color: var(--terra); }
+.footer__address {
+  font-style: normal;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: rgba(248, 247, 243, 0.55);
+}
+
+/* ---------- Sticky mobile CTA ---------- */
+.mobile-cta { display: none; }
+@media (max-width: 720px) {
+  .mobile-cta {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    left: 1rem; right: 1rem;
+    bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+    z-index: 90;
+    padding: 1rem 1.5rem;
+    border-radius: 999px;
+    background: var(--terra);
+    color: #fff;
+    font: 600 0.98rem var(--body);
+    text-decoration: none;
+    box-shadow: 0 14px 30px -12px rgba(27, 51, 63, 0.55);
+    transform: translateY(calc(100% + 2rem));
+    transition: transform 0.4s var(--ease);
+  }
+  .mobile-cta.is-shown { transform: none; }
+  .mobile-cta:active { background: var(--terra-deep); }
+}
+
+/* =========================================================
+   STANDALONE PAGES — privacy, terms, thanks, 404
+   ========================================================= */
+.page { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; }
+.page__bar {
+  background: var(--paper);
+  box-shadow: 0 1px 0 var(--line);
+  padding: 0.6rem 0;
+}
+.page__bar .nav__logo-img { height: 40px; }
+.page__bar .nav__cta { margin-left: auto; }
+@media (max-width: 540px) { .page__bar .nav__cta { display: none; } }
+.page__main { flex: 1; }
+.page__main--notice { display: flex; flex-direction: column; }
+.notice .eyebrow { color: #f6c2b3; }
+
+.doc { max-width: 760px; margin: 0 auto; padding: clamp(3.5rem, 9vw, 6rem) var(--gutter); }
+.doc .section-title { font-size: clamp(2.2rem, 5vw, 3.4rem); }
+.doc__updated { margin: 1rem 0 2.5rem; font-size: 0.9rem; color: var(--text-soft); }
+.doc h2 {
+  margin: 2.5rem 0 0.6rem;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1.35rem;
+  color: var(--ink);
+}
+.doc p, .doc li { color: var(--text-soft); }
+.doc p { margin: 0 0 1rem; }
+.doc ul { margin: 0 0 1rem; padding-left: 1.2rem; }
+.doc li { margin-bottom: 0.4rem; }
+.doc strong { color: var(--ink); font-weight: 600; }
+.doc a { color: var(--terra-deep); text-underline-offset: 3px; }
+.doc__address { font-style: normal; color: var(--text-soft); margin: 0 0 1rem; }
+
+.notice {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  padding: clamp(4rem, 12vw, 8rem) var(--gutter);
+  text-align: center;
+  background: linear-gradient(160deg, var(--sea) 0%, var(--ink) 100%);
+  color: var(--paper);
+}
+.notice__inner { max-width: 620px; }
+.notice__mark { width: 72px; height: 72px; margin: 0 auto 1.75rem; }
+.notice__title {
+  margin: 0 0 1.1rem;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(2.4rem, 7vw, 4.2rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+.notice__lede { margin: 0 auto 2.25rem; max-width: 500px; font-size: clamp(1.02rem, 1.7vw, 1.15rem); color: rgba(248, 247, 243, 0.85); }
+.notice__actions { display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem; justify-content: center; align-items: center; }
+.notice__link { color: var(--paper); font-weight: 500; text-underline-offset: 4px; }
+.notice__link:hover { color: #fff; }
 
 /* =========================================================
    REVEAL ANIMATION
