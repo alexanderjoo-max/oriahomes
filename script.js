@@ -279,12 +279,8 @@
       title: "Vancouver, B.C., Canada",
       price: "$225,000 USD for a 1/8 share",
       home: [
-        "Exterior", "Kitchen and living room", "Living room", "Living room",
-        "Dining room", "Dining room", "Dining room", "Kitchen", "Kitchen",
-        "Primary bedroom", "Bedroom", "Bathroom", "Bathroom", "Bathroom",
-        "Powder room", "Study", "Upstairs hallway", "Laundry room",
-        "Covered deck", "Upper deck", "Garden view", "Backyard", "Garden",
-        "Backyard"
+        "Exterior", "Covered deck", "Upper deck", "Garden view", "Backyard",
+        "Garden", "Backyard"
       ],
       city: [
         "Downtown Vancouver", "Stanley Park and False Creek", "Joffre Lakes",
