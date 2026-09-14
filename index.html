@@ -290,13 +290,30 @@
 
   <div class="dest__homes">
     <article class="home reveal" data-home="vancouver">
-      <button type="button" class="home__media" data-open="0" aria-label="View photos of the Vancouver home">
+      <div class="home__media">
         <img src="assets/homes/vancouver/city-01.jpg" alt="Downtown Vancouver and Stanley Park from the air" loading="lazy" />
         <span class="card__tag">Americas</span>
-      </button>
+        <button type="button" class="about__toggle" aria-expanded="false" aria-controls="about-vancouver">
+          <span class="about__hint">About this home</span>
+        </button>
+        <div class="about" id="about-vancouver" role="region" aria-label="About the Vancouver home">
+          <button type="button" class="about__close" aria-label="Close description">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
+          </button>
+          <p class="about__eyebrow">About this home</p>
+          <p>
+            Gorgeous 3-bedroom home with over 2,300 sq ft, 3½ bathrooms, a large
+            living area and family room, and a gourmet kitchen. The south-facing
+            backyard backs onto green space, lovely for morning walks. Central to
+            all shopping and transportation, and ideally located just 25 minutes
+            from the airport. A separate 1-bedroom suite generates income that can
+            help cover annual property taxes, utilities and garden maintenance.
+          </p>
+        </div>
+      </div>
       <div class="home__body">
-        <h3>Vancouver, Canada</h3>
-        <p>Glass, water, and the North Shore mountains at the end of the street.</p>
+        <h3>Vancouver, B.C., Canada</h3>
+        <p>3 bedrooms · 3½ baths · 2,300+ sq ft</p>
         <p class="home__price"><strong>$225,000</strong> <span>USD · 1/8 share</span></p>
         <div class="home__thumbs">
           <button type="button" data-open="0"><img src="assets/homes/vancouver/thumb/home-01.jpg" alt="Vancouver home, exterior" loading="lazy" /></button>
@@ -307,32 +324,32 @@
       </div>
     </article>
 
-    <article class="home reveal" data-home="kyoto">
-      <button type="button" class="home__media" data-open="0" aria-label="View photos of the Kyoto home">
-        <img src="assets/homes/kyoto/city-01.jpg" alt="Yasaka Pagoda above the old lanes of Higashiyama, Kyoto" loading="lazy" />
-        <span class="card__tag">Asia</span>
-      </button>
-      <div class="home__body">
-        <h3>Kyoto, Japan</h3>
-        <p>Two restored machiya, a short walk from the temple lanes.</p>
-        <p class="home__price"><strong>$125,000</strong> <span>USD · 1/8 share</span></p>
-        <div class="home__thumbs">
-          <button type="button" data-open="0"><img src="assets/homes/kyoto/thumb/home-01.jpg" alt="Kyoto home, entrance" loading="lazy" /></button>
-          <button type="button" data-open="1"><img src="assets/homes/kyoto/thumb/home-02.jpg" alt="Kyoto home, tatami room" loading="lazy" /></button>
-          <button type="button" data-open="2"><img src="assets/homes/kyoto/thumb/home-03.jpg" alt="Kyoto home, kitchen" loading="lazy" /></button>
-          <button type="button" data-open="3" class="home__more" aria-label="See all 7 photos of the Kyoto home"><img src="assets/homes/kyoto/thumb/home-04.jpg" alt="" loading="lazy" /><span>+4</span></button>
-        </div>
-      </div>
-    </article>
-
     <article class="home reveal" data-home="cabo">
-      <button type="button" class="home__media" data-open="0" aria-label="View photos of the Cabo San Lucas home">
+      <div class="home__media">
         <img src="assets/homes/cabo/city-01.jpg" alt="El Arco at Land's End, Cabo San Lucas" loading="lazy" />
         <span class="card__tag">Americas</span>
-      </button>
+        <button type="button" class="about__toggle" aria-expanded="false" aria-controls="about-cabo">
+          <span class="about__hint">About this home</span>
+        </button>
+        <div class="about" id="about-cabo" role="region" aria-label="About the Cabo San Lucas home">
+          <button type="button" class="about__close" aria-label="Close description">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
+          </button>
+          <p class="about__eyebrow">About this home</p>
+          <p>
+            Large 3-bedroom, 2,200 sq ft unit with great views of Lover's Arch.
+            Each bedroom has its own ensuite bathroom in this open-plan layout.
+            Walk out to the infinity pool or just lounge on the outdoor patio.
+            There is also a pickleball court, fitness gym, basketball court and
+            many other amenities. This will be a wonderful vacation home to enjoy
+            the ocean and all its water sports. Many great restaurants are within
+            a 15-minute drive, with spectacular ocean and sunset views.
+          </p>
+        </div>
+      </div>
       <div class="home__body">
         <h3>Cabo San Lucas, Mexico</h3>
-        <p>Desert coastline, warm water, and the arch at Land's End.</p>
+        <p>3 ensuite bedrooms · 2,200 sq ft · Infinity pool</p>
         <p class="home__price"><strong>$140,000</strong> <span>USD · 1/8 share</span></p>
         <div class="home__thumbs">
           <button type="button" data-open="0"><img src="assets/homes/cabo/thumb/home-01.jpg" alt="Cabo home, pool" loading="lazy" /></button>
@@ -347,13 +364,53 @@
   <p class="dest__label reveal"><span>Coming soon</span></p>
 
   <div class="dest__grid">
+    <article class="card reveal" data-img="kyoto">
+      <div class="card__media"></div>
+      <div class="card__body">
+        <span class="card__tag card__tag--soon">Coming soon</span>
+        <h3>Kyoto, Japan</h3>
+        <p>2-bedroom machiya · 7 min walk to Gion</p>
+        <p class="card__price"><strong>$125,000</strong> USD · 1/8 share</p>
+      </div>
+      <button type="button" class="about__toggle" aria-expanded="false" aria-controls="about-kyoto">
+        <span class="about__hint">About this home</span>
+      </button>
+      <div class="about" id="about-kyoto" role="region" aria-label="About the Kyoto home">
+        <button type="button" class="about__close" aria-label="Close description">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
+        </button>
+        <p class="about__eyebrow">About this home</p>
+        <p>
+          Centrally located, a 7-minute walk from the Gion district, with all the
+          best restaurants and shopping on your doorstep. A 2-bedroom traditional
+          Japanese machiya with its own laundry. All the major sights are within
+          walking distance, and transportation and the subway are just a skip
+          away.
+        </p>
+      </div>
+    </article>
     <article class="card reveal" data-img="osaka">
       <div class="card__media"></div>
       <div class="card__body">
         <span class="card__tag card__tag--soon">Coming soon</span>
         <h3>Osaka, Japan</h3>
-        <p>A penthouse in Namba, right in the city centre by the Dotonbori canal.</p>
+        <p>2-bedroom penthouse · approx. 850 sq ft · 3 patios</p>
         <p class="card__price"><strong>$150,000</strong> USD · 1/8 share</p>
+      </div>
+      <button type="button" class="about__toggle" aria-expanded="false" aria-controls="about-osaka">
+        <span class="about__hint">About this home</span>
+      </button>
+      <div class="about" id="about-osaka" role="region" aria-label="About the Osaka home">
+        <button type="button" class="about__close" aria-label="Close description">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
+        </button>
+        <p class="about__eyebrow">About this home</p>
+        <p>
+          Centrally located, a 12-minute walk to the heart of the Namba district —
+          the most popular area for tourists, with amazing shopping and great
+          restaurants. This large 2-bedroom penthouse is approximately 850 sq ft
+          with 3 patios. The best location in Osaka.
+        </p>
       </div>
     </article>
     <article class="card reveal" data-img="florence">
@@ -361,8 +418,23 @@
       <div class="card__body">
         <span class="card__tag card__tag--soon">Coming soon</span>
         <h3>Florence, Italy</h3>
-        <p>A stone apartment in the old centre, the Duomo out the window.</p>
+        <p>2 bedrooms + office · 10 min walk to the Duomo</p>
         <p class="card__price"><strong>$150,000</strong> USD · 1/8 share</p>
+      </div>
+      <button type="button" class="about__toggle" aria-expanded="false" aria-controls="about-florence">
+        <span class="about__hint">About this home</span>
+      </button>
+      <div class="about" id="about-florence" role="region" aria-label="About the Florence home">
+        <button type="button" class="about__close" aria-label="Close description">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
+        </button>
+        <p class="about__eyebrow">About this home</p>
+        <p>
+          Large 2-bedroom home with an office and a large living room. Ideally
+          located in the best area of the city, across from the St. Regis Hotel. A
+          10-minute walk to the Duomo, close to many outstanding restaurants, and
+          just a block in from the Arno river.
+        </p>
       </div>
     </article>
     <article class="card reveal" data-img="kunming">
@@ -370,7 +442,24 @@
       <div class="card__body">
         <span class="card__tag card__tag--soon">Coming soon</span>
         <h3>Kunming, China</h3>
-        <p>Eternal-spring weather on the doorstep of the Stone Forest.</p>
+        <p>3 bedrooms · 2 baths · 1,350 sq ft</p>
+      </div>
+      <button type="button" class="about__toggle" aria-expanded="false" aria-controls="about-kunming">
+        <span class="about__hint">About this home</span>
+      </button>
+      <div class="about" id="about-kunming" role="region" aria-label="About the Kunming home">
+        <button type="button" class="about__close" aria-label="Close description">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
+        </button>
+        <p class="about__eyebrow">About this home</p>
+        <p>
+          Ideally located close to parks and many amenities. Shopping is close by,
+          and so are the local markets for fresh meat and produce daily. This
+          3-bedroom, 2-bathroom, 1,350 sq ft unit is in a city renowned for
+          probably the best golf courses in all of China. The city offers the best
+          climate, with temperatures ranging from 20–27°C most of the year. You'll
+          love the Yunnan culture and its food.
+        </p>
       </div>
     </article>
   </div>

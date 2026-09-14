@@ -186,6 +186,57 @@
 
   document.querySelectorAll(".waitform").forEach(handleForm);
 
+  /* ---------- "About this home" descriptions ---------- *
+   * Tapping a destination photo slides its full description over the photo.
+   * One open at a time. If the text is taller than the photo (narrow
+   * screens), the photo grows to fit rather than scrolling.
+   */
+  var aboutToggles = document.querySelectorAll(".about__toggle");
+
+  function aboutHost(panel) { return panel.parentNode; }
+
+  function fitAbout(panel) {
+    var host = aboutHost(panel);
+    host.style.minHeight = "";
+    if (panel.scrollHeight > host.clientHeight) {
+      host.style.minHeight = panel.scrollHeight + "px";
+    }
+  }
+
+  function setAbout(toggleBtn, open, returnFocus) {
+    var panel = document.getElementById(toggleBtn.getAttribute("aria-controls"));
+    if (!panel) return;
+    toggleBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    panel.classList.toggle("is-open", open);
+    if (open) {
+      fitAbout(panel);
+      panel.querySelector(".about__close").focus({ preventScroll: true });
+    } else {
+      aboutHost(panel).style.minHeight = "";
+      if (returnFocus) toggleBtn.focus({ preventScroll: true });
+    }
+  }
+
+  aboutToggles.forEach(function (btn) {
+    var panel = document.getElementById(btn.getAttribute("aria-controls"));
+    btn.addEventListener("click", function () {
+      aboutToggles.forEach(function (other) {
+        if (other !== btn && other.getAttribute("aria-expanded") === "true") setAbout(other, false);
+      });
+      setAbout(btn, true);
+    });
+    if (!panel) return;
+    // Tap anywhere on the open description (or its ×) to put the photo back
+    panel.addEventListener("click", function () { setAbout(btn, false, true); });
+    panel.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") setAbout(btn, false, true);
+    });
+  });
+
+  window.addEventListener("resize", function () {
+    document.querySelectorAll(".about.is-open").forEach(fitAbout);
+  }, { passive: true });
+
   /* ---------- Sticky mobile CTA ---------- *
    * Phones only (CSS hides it above 720px). Slides in once the hero — which
    * has its own button — is off screen, and gets out of the way again when
@@ -225,7 +276,7 @@
    */
   var HOMES = {
     vancouver: {
-      title: "Vancouver, Canada",
+      title: "Vancouver, B.C., Canada",
       price: "$225,000 USD for a 1/8 share",
       home: [
         "Exterior", "Kitchen and living room", "Living room", "Living room",
@@ -238,19 +289,6 @@
       city: [
         "Downtown Vancouver", "Stanley Park and False Creek", "Joffre Lakes",
         "Whistler Village", "Whistler Village at night", "Whistler in winter"
-      ]
-    },
-    kyoto: {
-      title: "Kyoto, Japan",
-      price: "$125,000 USD for a 1/8 share",
-      home: [
-        "Entrance", "Tatami room", "Kitchen", "Bathroom", "Toilet", "Storage",
-        "Utility area"
-      ],
-      city: [
-        "Yasaka Pagoda", "Higashiyama lanes", "Tō-ji pagoda",
-        "Fushimi Inari torii gates", "Temple garden", "Temple guardians",
-        "Kyoto Tower", "Sushi counter"
       ]
     },
     cabo: {
